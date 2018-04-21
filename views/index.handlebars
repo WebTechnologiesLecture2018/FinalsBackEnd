@@ -1,0 +1,14 @@
+<form method="POST">
+  {{#each questions }}
+    <p>{{id}}. {{content}}</p>
+
+    <input type="radio" name="question-1" id="A"/>A. Button
+    <input type="radio" name="question-1" id="B"/>B. Button
+    <input type="radio" name="question-1" id="C"/>C. Button
+
+  {{/each}}
+
+  <hr>
+  <button>Send</button>
+</form>
+
