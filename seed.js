@@ -16,7 +16,7 @@ const createUsersSql = `
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY,
   name text NOT NULL,
-  username text NOT NULL,
+  username text NOT NULL
 )
 `;
 
@@ -30,10 +30,10 @@ CREATE TABLE IF NOT EXISTS questions (
 
 const createOptionsSql = `
 CREATE TABLE IF NOT EXISTS options (
-  id INTEGER PRIMARY KEY,
+  option_id INTEGER PRIMARY KEY,
   question_id INT NOT NULL,
   code CHAR(1) NOT NULL,
-  content TEXT NOT NULL,
+  option TEXT NOT NULL,
   is_correct TINYINT
 )
 `;
@@ -77,23 +77,23 @@ function insertQuestions() {
 **/
 
 async function insertQuestions () {
-  const q1 = `INSERT INTO questions (quiz_code, content) VALUES ('1', 'This is question 1');`
+  const q1 = `INSERT INTO questions (quiz_code, content) VALUES ('1', 'Sino si rica');`
   const q1Options = id => `
-    INSERT INTO options(question_id, code, content, is_correct)
+    INSERT INTO options(question_id, code, option, is_correct)
     VALUES
-      (${id}, 'A', 'This is A', 0),
-      (${id}, 'B', 'This is B', 1),
-      (${id}, 'C', 'This is C', 0)
+      (${id}, 'A', 'yung naka pink', 0),
+      (${id}, 'B', 'yung naka black', 1),
+      (${id}, 'C', 'yung naka red', 0)
     ;
   `;
 
   const q2 = `INSERT INTO questions (quiz_code, content) VALUES ('1', 'This is question 2');`
   const q2Options = id => `
-    INSERT INTO options(question_id, code, content, is_correct)
+    INSERT INTO options(question_id, code, option, is_correct)
     VALUES
-      (LAST_INSERT_ROWID(), 'A', 'This is A', 0),
-      (LAST_INSERT_ROWID(), 'B', 'This is B', 1),
-      (LAST_INSERT_ROWID(), 'C', 'This is C', 0)
+      (${id}, 'A', 'This is A', 0),
+      (${id}, 'B', 'This is B', 1),
+      (${id}, 'C', 'This is C', 0)
     ;
   `;
   const [q1Id] = await db.query(q1, { type: Sequelize.QueryTypes.INSERT })
