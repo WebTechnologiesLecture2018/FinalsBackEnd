@@ -4,6 +4,8 @@ const session = require('express-session');
 const Sequelize = require('sequelize');
 const db = require('./db');
 
+const $ = require('jquery');
+
 const app = express();
 
 app.engine('handlebars', exphbs({ defaultLayout: 'default' }));
