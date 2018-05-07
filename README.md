@@ -2,5 +2,4 @@
 
 1. Install node
 2. `npm i`
-3. `npm start`
-
+3. `npm start` or `npm run dev`

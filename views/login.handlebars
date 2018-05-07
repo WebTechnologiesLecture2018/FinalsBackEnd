@@ -1,4 +1,52 @@
-<form method="POST">
-  User: <input type="text" name="name">
-  <input type="submit">
-</form>
+<div class="navbar row">
+  <a href="index.html">Home</a>
+  <a href="#about.html">About Us</a>
+  <div class="dropdown">
+    <button class="dropbtn">Topics</button>
+    <div class="dropdown-content">
+      <a href="#">Servlet</a>
+      <a href="#">PHP</a>
+      <a href="#">Node</a>
+    </div>
+  </div>
+</div>
+
+<div class="col-container row">
+  <div class="col-6">
+  	<div id="picture">
+  		<img src="static/images/login.jpg">
+  	</div>
+  </div>
+
+	<div class="col-6">
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="InputEmail" id="margin">Email address</label>
+          <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="InputPassword">Password</label>
+          <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+        </div>
+        <button type="submit" class="btn login">Log In</button>
+      </form>
+    </div>
+	</div>
+</div>
+
+<div class="footer-site row">
+	<div class="footer-right col-6">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. </p>
+	</div>
+	<div class="footer-left col-6">
+		<p class="footer-links">
+			<a href="topics.html">Topics</a>
+			·
+			<a href="about.html">About Us</a>
+			·
+			<a href="about.html">Contact</a>
+		</p>
+		<p>Web System & Technologies &copy; 2018</p>
+	</div>
+</div>
