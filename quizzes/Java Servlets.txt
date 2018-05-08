@@ -1,0 +1,58 @@
+1.	These are programs that acts as middle layers between requests from
+	a web browser and databases:
+	a. Gateway Interfaces
+	b. Servlet Packages
+ans	c. Java Servlets
+
+2.	To what package does java servlets belong to?
+	a. java.servlet
+ans	b. javax.servlet
+	c. javaz.servlet
+
+3.	The servlet is initialized by calling what method?
+ans	a. init()
+	b. start()
+	c. run()
+
+4.	The servlet process a client's request by calling what method?
+	a. serve()
+ans	b. service()
+	c. process()
+
+5.	The servlet is terminated by calling what method?
+	a. stop()
+	b. terminate()
+ans	c. destroy()
+
+6.	Header that is used to identify clients when accessing
+	encrypted web pages:
+ans	a. Authorization
+	b. Authentication
+	c. Permission
+
+7.	It means that a persistent connection should be used:
+	a. Keep-Safe
+	b. Keep-Living
+ans	c. Keep-Alive
+
+8.	A piece of data sent from a website and stored in the client's
+	web browser:
+ans	a. cookie
+	b. biscuit
+	c. pretzel
+
+9.	Which of these following scenario is a typical servlet life cycle?
+	a. HTTP requests coming to the client are delegated to the servlet
+	container.
+	b. Servlet container loads the servlet after invoking the
+	service() method.
+ans	c. Servlet container handles multiple requests by spawning multiple
+	threads, each thread executing the service() method of a single
+	instance of the servlet.
+
+10.	This header lets you request that the browser ask the user to save
+	the response to disk in a file of the given name:
+	a. Content-Response
+	b. Content-Encoding
+ans	c. Content-Disposition
+
