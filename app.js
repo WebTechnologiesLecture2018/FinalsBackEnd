@@ -17,13 +17,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) => {
   res.render('login');
 });
-
-app.get('/coursewebsite', (req, res) => {
-  res.render('coursewebsite');
-})
+app.get('/noelle', (req, res) => {
+  res.render('mehannie');
+});
+app.get('/patrishia', (req, res) => {
+  res.render('patrishia');
+});
 // Route to get questions
 app.get('/questions', (req, res) => {
-  db.query('SELECT * FROM questions JOIN options ON id == question_id ORDER BY id ASC, code ASC', {type: Sequelize.QueryTypes.SELECT})
+  db.query('SELECT * FROM questions JOIN options ON id == question_id where ORDER BY id ASC, code ASC', {type: Sequelize.QueryTypes.SELECT})
     .then(questions => {
       var questionArr = [];
       for(var i = 0; i < questions.length; i+=3) {
@@ -56,7 +58,7 @@ app.get('/sample', (req, res) => {
 
 app.get('/greetme', (req, res) => {
   var sample = req.query.username;
-  res.render('greatme', {sample} );
+  res.render('greetme', {sample} );
 });
 
 
