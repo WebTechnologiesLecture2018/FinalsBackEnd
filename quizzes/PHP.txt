@@ -1,0 +1,52 @@
+1.	PHP is an acronym for:
+	a. Processing Hypertext Protocol
+	b. Hypertext Processing
+ans	c. Hypertext Preprocessor
+
+2.	Creator of the first version of PHP:
+ans	a. Rasmus Lerdorf
+	b. Ryan Dhal
+	c. Tim Berners-Lee
+
+3.	PHP is a _____ side scripting language, embedded in html.
+	a. Client
+ans	b. Server
+	c. Middleware
+
+4.	Common usage of PHP are the following except:
+	a. form handling
+	b. access/set cookies variables
+ans	c. data decryption
+
+5.	Tag style of PHP includes:
+	a. <!php... !>
+ans	b. <?php... ?>
+	c. <php... /php>
+
+6.	PHP variables are denoted by a leading ___ sign.
+ans	a. $
+	b. ?
+	c. #
+
+7.	Additional set of predefined arrays containing variables from the 
+	web server, the environment, and user input:
+	a. Superconstructors
+	b. Superclasses
+ans	c. Superglobals
+
+8.	In following the coding standard, function declarations follow the ___ style.
+ans	a. BSD/Allman
+	b. Pico
+	c. Ratliff
+
+9.	In order to process PHP script instructions, it must be installed to
+	generate HTML output:
+ans	a. PHP Parser
+	b. PHP Generator
+	c. PHP Decoder
+
+10.	All are true about PHP Syntax, except:
+	a. PHP is NOT whitesaace sensitive
+ans	b. PHP is NOT case sensitive
+	c. Statements are terminated by semicolons
+
