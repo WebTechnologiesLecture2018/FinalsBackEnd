@@ -1,4 +1,9 @@
-<form method="GET" action="greetme">
-  User: <input type="text" name="username">
-  <input type="submit">
+<form method="POST">
+  {{#each questions }}
+    <p>{{question_id}}. {{option}}</p>
+
+  {{/each}}
+
+  <hr>
+  <button>Send</button>
 </form>

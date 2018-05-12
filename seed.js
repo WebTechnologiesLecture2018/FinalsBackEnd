@@ -77,13 +77,19 @@ function insertQuestions() {
 **/
 
 async function insertQuestions () {
-  const q1 = `INSERT INTO questions (quiz_code, content) VALUES ('4', "An element of JSP where it contains any number of JAVA language statements, variable or method declarations, or expressions that are valid in the page scripting language.");`
+  const q1 = `INSERT INTO questions (quiz_code, content) VALUES ('4', "An element of JSP where it contains any number of JAVA language
+	statements, variable or method declarations, or expressions that are
+	valid in the page scripting language.
+");`
   const q1Options = id => `
     INSERT INTO options(question_id, code, option, is_correct)
     VALUES
-      (${id}, 'A', 'Servlet', 0),
-      (${id}, 'B', 'Scriptlet', 1),
-      (${id}, 'C', 'Nodelet', 0)
+      (${id}, 'A', 'Servlet
+', 0),
+      (${id}, 'B', 'Scriptlet
+', 1),
+      (${id}, 'C', 'Nodelet
+', 0)
     ;
   `;
 

@@ -25,7 +25,7 @@ app.get('/patrishia', (req, res) => {
 });
 // Route to get questions
 app.get('/questions', (req, res) => {
-  db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == 4 ORDER BY id ASC, code ASC', {type: Sequelize.QueryTypes.SELECT})
+  db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == 2 ORDER BY id ASC, code ASC', {type: Sequelize.QueryTypes.SELECT})
     .then(questions => {
       var questionArr = [];
       for(var i = 0; i < questions.length; i+=3) {
@@ -61,6 +61,13 @@ app.get('/greetme', (req, res) => {
   var sample = req.query.username;
   res.render('greetme', {sample} );
 });
+
+app.get('/test', (req, res) => {
+  db.query('SELECT * FROM options', {type: Sequelize.QueryTypes.SELECT})
+    .then(questions => {
+      res.render('sample', { questions })
+    })
+})
 
 
 
