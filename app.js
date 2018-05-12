@@ -31,7 +31,7 @@ app.get('/questions', (req, res) => {
       for(var i = 0; i < questions.length; i+=3) {
         questionArr.push({
           "id": questions[i].id,
-          "showid": questions[i].id % 10,
+          "showid": questions[i].id % 10 == 0 ? 10 : questions[i].id % 10,
           "content": questions[i].content,
           "options": {
             "option1": {
