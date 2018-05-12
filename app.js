@@ -25,12 +25,13 @@ app.get('/patrishia', (req, res) => {
 });
 // Route to get questions
 app.get('/questions', (req, res) => {
-  db.query('SELECT * FROM questions JOIN options ON id == question_id where ORDER BY id ASC, code ASC', {type: Sequelize.QueryTypes.SELECT})
+  db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == 4 ORDER BY id ASC, code ASC', {type: Sequelize.QueryTypes.SELECT})
     .then(questions => {
       var questionArr = [];
       for(var i = 0; i < questions.length; i+=3) {
         questionArr.push({
           "id": questions[i].id,
+          "showid": questions[i].id % 10,
           "content": questions[i].content,
           "options": {
             "option1": {
