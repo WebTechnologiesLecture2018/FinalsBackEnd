@@ -22,7 +22,12 @@ app.post('/login', (req, res) => {
   if(req.body.user) {
     req.session.user = req.body.user;
   }
-  res.redirect('/coursewebsite');
+  res.redirect('/home');
+});
+
+app.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
 })
 
 app.get('/about', (req, res) => {
@@ -85,9 +90,17 @@ app.get('/session', (req, res) => {
   }
 });
 
-app.get('/coursewebsite', (req, res) => {
+app.get('/topics', (req, res) => {
   if(req.session.user) {
-    res.render('coursewebsite');
+    res.render('topics');
+  } else {
+    res.redirect('/');
+  }
+});
+
+app.get('/home', (req, res) => {
+  if(req.session.user) {
+    res.render('home');
   } else {
     res.redirect('/');
   }
@@ -129,10 +142,27 @@ const createQuestion = function(quizcode) {
 
 app.post('/getAnswers', (req, res) => {
   let q1 = req.body;
-  for(key in q1) {
-    console.log(key + ":" + q1[key]);
-  };
-
+  if(Object.keys(q1).length != 10) {
+    switch(req.session.quizcode) {
+      case 1:
+        res.redirect('/servlet');
+        break;
+      case 2:
+        res.redirect('/php');
+        break;
+      case 3:
+        res.redirect('/node');
+        break;
+      case 4:
+        res.redirect('jsp');
+        break;
+      }
+  } else {
+    console.log(Object.keys(q1).length);
+    for(key in q1) {
+      console.log(key + ":" + q1[key]);
+    };
+  }
 });
 
 // Route to save response
