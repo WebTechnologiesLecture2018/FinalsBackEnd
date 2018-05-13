@@ -13,15 +13,28 @@ app.set('view engine', 'handlebars');
 app.use('/static', express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({ secret: 'webtechLEC', resave: false, saveUninitialized: false }));
 
 app.get('/', (req, res) => {
   res.render('login');
 });
-app.get('/noelle', (req, res) => {
-  res.render('mehannie');
+app.get('/about', (req, res) => {
+  res.render('about');
 });
-app.get('/patrishia', (req, res) => {
-  res.render('patrishia');
+app.get('/jsp', (req, res) => {
+  res.render('jsp');
+});
+app.get('/node', (req, res) => {
+  res.render('node');
+});
+app.get('/servlet', (req, res) => {
+  res.render('servlet');
+});
+app.get('/session', (req, res) => {
+  res.render('session');
+});
+app.get('/coursewebsite', (req, res) => {
+  res.render('coursewebsite');
 });
 // Route to get questions
 app.get('/questions', (req, res) => {
@@ -52,24 +65,6 @@ app.get('/questions', (req, res) => {
       res.render('questions', { questionArr });
     });
 });
-
-app.get('/sample', (req, res) => {
-  res.render('sample');
-});
-
-app.get('/greetme', (req, res) => {
-  var sample = req.query.username;
-  res.render('greetme', {sample} );
-});
-
-app.get('/test', (req, res) => {
-  db.query('SELECT * FROM options', {type: Sequelize.QueryTypes.SELECT})
-    .then(questions => {
-      res.render('sample', { questions })
-    })
-})
-
-
 
 // Route to save response
 

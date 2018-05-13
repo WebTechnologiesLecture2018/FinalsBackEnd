@@ -1,16 +1,16 @@
 <div class="navbar">
-    <a href="/coursewebsite">Home</a>
-        <a href="/about">About Us</a>
-        <div class="dropdown">
-            <button class="dropbtn">Topics</button>
-            <div class="dropdown-content">
-                <a href="/servlet">Servlet</a>
-                <a href="/php">PHP</a>
-                <a href="/node">Node</a>
-                <a href="/jsp">JSP</a>
-                <a href="/session">Session Handling</a>
-            </div>
-        </div> 
+  <a href="/coursewebsite">Home</a>
+  <a href="/about">About Us</a>
+  <div class="dropdown">
+    <button class="dropbtn">Topics</button>
+    <div class="dropdown-content">
+      <a href="/servlet">Servlet</a>
+      <a href="/php">PHP</a>
+      <a href="/node">Node</a>
+      <a href="/jsp">JSP</a>
+      <a href="/session">Session Handling</a>
+    </div>
+  </div>
 </div>
 
 
@@ -23,42 +23,43 @@
 </div>
 
 <div class="body servlet">
-                    <div class="definition servlet">
-                      <h2> What is Java Servlet? </h2>
-                        <p>Java objects that are intended to pay the role of server components in client server communications. It Handles client requests by generating responses to such requests. Java Servlet is also a part of Java EE specification. It is hosted in a servlet container that provides the environment in which the servlet runs, as well as controls the servlet lifecycle.</p>
-                    </div>
+  <div class="definition servlet">
+    <h2> What is Java Servlet? </h2>
+    <p>Java objects that are intended to pay the role of server components in client server communications. It Handles client requests by generating responses to such requests. Java Servlet is also a part of Java EE specification. It is hosted in a servlet container that provides the environment in which the servlet runs, as well as controls the servlet lifecycle.</p>
+  </div>
 
-                    <ul class="javaserv2">
-                        <li>
-                            <h4>Initialization</h4>
-                            <p>init() method</p>
-                            <p>invoked only once and is intended for any startup initialization code for the servlet</p>
-                        </li>
-                        <li>
-                            <h4>Request handling</h4>
-                            <p>service() method</p>
-                            <p>invoked for each client request</p>
-                            <p>servlet performs whatever logic necessary in order to serve the request and generate a response. Multiple client requests are typically handled by a single, multi-threaded servlet instance; thus, care must be exercised to ensure that the code being run by the servlet is thread-safe.</p>
-                        </li>
-                        <li>
-                            <h4>Destruction</h4>
-                            <p>destroy() method</p>
-                            <p>invoked before the servlet instance is unloaded and is untended for any housekeeping code that the servlet may need to run.</p>
-                        </li>
-                   </ul>
+  <ul class="javaserv2">
+    <li>
+      <h4>Initialization</h4>
+      <p>init() method</p>
+      <p>invoked only once and is intended for any startup initialization code for the servlet</p>
+    </li>
+    <li>
+      <h4>Request handling</h4>
+      <p>service() method</p>
+      <p>invoked for each client request</p>
+      <p>servlet performs whatever logic necessary in order to serve the request and generate a response. Multiple client requests are typically handled by a single, multi-threaded servlet instance; thus, care must be exercised to ensure that the code being run by the servlet is thread-safe.</p>
+    </li>
+    <li>
+      <h4>Destruction</h4>
+      <p>destroy() method</p>
+      <p>invoked before the servlet instance is unloaded and is untended for any housekeeping code that the servlet may need to run.</p>
+    </li>
+ </ul>
 
-                <h2>HTTPservlet</h2>
-                    <div class="java-def">
-                        <p>Java servlet used to handle HTTP requests and generate HTTP responses.</p>
-                        <p>HTTPservlet is hosted in a web container which is a component in a Java application server.The service() method call is routed to doXXX() call, depending on the HTTP request method, e.g., doGet(), doPost(), doHead(), doPut(), doDelete(), etc.</p>
+ <h2>HTTPservlet</h2>
+  <div class="java-def">
+    <p>Java servlet used to handle HTTP requests and generate HTTP responses.</p>
+    <p>HTTPservlet is hosted in a web container which is a component in a Java application server.The service() method call is routed to doXXX() call, depending on the HTTP request method, e.g., doGet(), doPost(), doHead(), doPut(), doDelete(), etc.</p>
 
-                           <ul class="javaserv2">
-                               <li>HttpServletRequest - Object representation of the HTTP request sent by the client and received by the servlet. It is used to access information from the request message.</li>
-                               <li>HttpServletResponse - Object representation of the HTTP response generated by the servlet and sent back to the requesting client. It is used to set information in the response message.</li>
-                           </ul>
-                    </div>
+     <ul class="javaserv2">
+       <li>HttpServletRequest - Object representation of the HTTP request sent by the client and received by the servlet. It is used to access information from the request message.</li>
+       <li>HttpServletResponse - Object representation of the HTTP response generated by the servlet and sent back to the requesting client. It is used to set information in the response message.</li>
+     </ul>
+  </div>
 </div>
-    <div class="footer-site row">
+
+<div class="footer-site row">
 	<div class="footer-left col-8">
 		<p class="footer-links">
 			<a href="/about">About Us</a>
