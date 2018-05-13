@@ -4,11 +4,11 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <form method="POST">
+        <form method="POST" action="getAnswers">
           {{#each questionArr }}
             <p>{{showid}}. {{content}}</p>
             {{#each options }}
-              <input type="radio" name={{../id}} id={{code}} />{{code}}. {{option}}<br>
+              <input type="radio" name={{../name}} value={{code}} />{{code}}. {{option}}<br>
             {{/each}}
             <br>
           {{/each }}

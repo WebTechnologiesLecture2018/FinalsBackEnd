@@ -1,0 +1,12 @@
+<form method="POST">
+  {{#each questions }}
+    <p>{{id}}. {{content}}</p>
+    {{#each ../options }}
+      <input type="radio" name={{question_id}} id={{code}}/>{{code}}. {{option}}
+    {{/each }}
+
+  {{/each}}
+
+  <hr>
+  <button>Send</button>
+</form>

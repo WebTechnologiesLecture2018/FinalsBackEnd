@@ -9,42 +9,78 @@ const app = express();
 
 app.engine('handlebars', exphbs({ defaultLayout: 'default' }));
 app.set('view engine', 'handlebars');
-
 app.use('/static', express.static('public'));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({ secret: 'webtechLEC', resave: false, saveUninitialized: false }));
 
 app.get('/', (req, res) => {
-  res.render('login');
+  let user = req.session.user;
+  res.render('index');
 });
+
+app.post('/login', (req, res) => {
+  if(req.body.user) {
+    req.session.user = req.body.user;
+  }
+  res.redirect('/coursewebsite');
+})
+
 app.get('/about', (req, res) => {
-  res.render('about');
+  if(req.session.user) {
+    res.render('about');
+  } else {
+    res.redirect('/');
+  }
 });
 app.get('/jsp', (req, res) => {
-  res.render('jsp');
+  if(req.session.user) {
+    res.render('jsp');
+  } else {
+    res.redirect('/');
+  }
 });
 app.get('/node', (req, res) => {
-  res.render('node');
+  if(req.session.user) {
+    res.render('node');
+  } else {
+    res.redirect('/');
+  }
 });
 app.get('/servlet', (req, res) => {
-  res.render('servlet');
+  if(req.session.user) {
+    res.render('servlet');
+  } else {
+    res.redirect('/');
+  }
 });
 app.get('/session', (req, res) => {
-  res.render('session');
+  if(req.session.user) {
+    res.render('session');
+  } else {
+    res.redirect('/');
+  }
 });
 app.get('/coursewebsite', (req, res) => {
-  res.render('coursewebsite');
+  if(req.session.user) {
+    res.render('coursewebsite');
+  } else {
+    res.redirect('/');
+  }
 });
 // Route to get questions
 app.get('/questions', (req, res) => {
-  db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == 2 ORDER BY id ASC, code ASC', {type: Sequelize.QueryTypes.SELECT})
+  db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == ? ORDER BY id ASC, code ASC',
+    {
+      replacements: [3],
+      type: Sequelize.QueryTypes.SELECT
+    })
     .then(questions => {
-      var questionArr = [];
+      let questionArr = [];
       for(var i = 0; i < questions.length; i+=3) {
         questionArr.push({
           "id": questions[i].id,
           "showid": questions[i].id % 10 == 0 ? 10 : questions[i].id % 10,
+          "name": 'q' + (questions[i].id % 10 == 0 ? 10 : questions[i].id % 10),
           "content": questions[i].content,
           "options": {
             "option1": {
@@ -64,6 +100,11 @@ app.get('/questions', (req, res) => {
       }
       res.render('questions', { questionArr });
     });
+});
+
+app.post('/getAnswers', (req, res) => {
+  let q1 = req.body;
+  console.log(q1.values);
 });
 
 // Route to save response

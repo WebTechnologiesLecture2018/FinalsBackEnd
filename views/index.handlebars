@@ -1,12 +1,40 @@
-<form method="POST">
-  {{#each questions }}
-    <p>{{id}}. {{content}}</p>
-    {{#each ../options }}
-      <input type="radio" name={{question_id}} id={{code}}/>{{code}}. {{option}}
-    {{/each }}
+<!--<form method="POST">
+  User: <input type="text" name="name">
+  <input type="submit">
+</form>-->
+<div class="navbar">
+  <a href="/coursewebsite">Home</a>
+  <a href="/about">About Us</a>
+  <div class="dropdown">
+    <button class="dropbtn">Topics</button>
+    <div class="dropdown-content">
+      <a href="/servlet">Servlet</a>
+      <a href="/php">PHP</a>
+      <a href="/node">Node</a>
+      <a href="/jsp">JSP</a>
+      <a href="/session">Session Handling</a>
+    </div>
+  </div>
+</div>
 
-  {{/each}}
 
-  <hr>
-  <button>Send</button>
-</form>
+<div class="container login">
+  <form method="post" action="login">
+    <div class="form-group">
+      <label for="Username" id="margin">Username </label>
+      <input type="name" class="form-control" placeholder="Username" name="user">
+    </div>
+
+    <button type="submit" class="btn login">Log In</button>
+  </form>
+</div>
+
+
+<div class="footer-site row">
+	<div class="footer-left col-8">
+		<p class="footer-links">
+			<a href="/about">About Us</a>
+		</p>
+		<p>Web System & Technologies &copy; 2018</p>
+	</div>
+</div>
