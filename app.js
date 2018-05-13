@@ -141,7 +141,7 @@ const createQuestion = function(quizcode) {
 app.post('/getAnswers', (req, res) => {
   let answers = req.body;
   if(Object.keys(answers).length != 10) {
-    req.session.remaining = 10 - Object.keys(q1).length;
+    req.session.remaining = 10 - Object.keys(answers).length;
     switch(req.session.quizcode) {
       case 1:
         res.redirect('/servlet');
@@ -192,7 +192,7 @@ app.post('/getAnswers', (req, res) => {
 
 // Route to save response
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 4515;
 app.listen(port, () => {
   console.log('Server started @ http://localhost:' + port);
 });
