@@ -42,7 +42,8 @@ app.get('/jsp', (req, res) => {
   if(req.session.user) {
     req.session.quizcode = 4;
     createQuestion(4).then(questionArr => {
-      res.render('jsp', { questionArr });
+      let remaining = req.session.remaining;
+      res.render('jsp', { questionArr, remaining });
     });
   } else {
     res.redirect('/');
@@ -53,7 +54,8 @@ app.get('/node', (req, res) => {
   if(req.session.user) {
     req.session.quizcode = 3;
     createQuestion(3).then(questionArr => {
-      res.render('node', { questionArr });
+      let remaining = req.session.remaining;
+      res.render('node', { questionArr, remaining });
     });
   } else {
     res.redirect('/');
@@ -64,7 +66,8 @@ app.get('/servlet', (req, res) => {
   if(req.session.user) {
     req.session.quizcode = 1;
     createQuestion(1).then(questionArr => {
-      res.render('servlet', { questionArr });
+      let remaining = req.session.remaining;
+      res.render('servlet', { questionArr, remaining });
     });
   } else {
     res.redirect('/');
@@ -75,7 +78,8 @@ app.get('/php', (req, res) => {
   if(req.session.user) {
     req.session.quizcode = 2;
     createQuestion(2).then(questionArr => {
-      res.render('php', { questionArr });
+      let remaining = req.session.remaining;
+      res.render('php', { questionArr, remaining });
     });
   } else {
     res.redirect('/');
@@ -141,8 +145,9 @@ const createQuestion = function(quizcode) {
 }
 
 app.post('/getAnswers', (req, res) => {
-  let q1 = req.body;
-  if(Object.keys(q1).length != 10) {
+  let answers = req.body;
+  if(Object.keys(answers).length != 10) {
+    req.session.remaining = 10 - Object.keys(q1).length;
     switch(req.session.quizcode) {
       case 1:
         res.redirect('/servlet');
@@ -154,14 +159,26 @@ app.post('/getAnswers', (req, res) => {
         res.redirect('/node');
         break;
       case 4:
-        res.redirect('jsp');
+        res.redirect('/jsp');
         break;
       }
   } else {
-    console.log(Object.keys(q1).length);
-    for(key in q1) {
-      console.log(key + ":" + q1[key]);
-    };
+    db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == ? AND is_correct == 1  ORDER BY id ASC',
+      {
+        replacements: [req.session.quizcode],
+        type: Sequelize.QueryTypes.SELECT
+      })
+      .then(results => {
+        let correct = 0;
+        let count = 0;
+        for(key in answers) {
+          if(results[count].code == answers[key]) {
+            correct++;
+          }
+          count++;
+        };
+        console.log(correct);
+      })
   }
 });
 
