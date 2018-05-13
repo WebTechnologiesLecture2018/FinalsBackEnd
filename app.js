@@ -32,27 +32,51 @@ app.get('/about', (req, res) => {
     res.redirect('/');
   }
 });
+
 app.get('/jsp', (req, res) => {
   if(req.session.user) {
-    res.render('jsp');
+    req.session.quizcode = 4;
+    createQuestion(4).then(questionArr => {
+      res.render('jsp', { questionArr });
+    });
   } else {
     res.redirect('/');
   }
 });
+
 app.get('/node', (req, res) => {
   if(req.session.user) {
-    res.render('node');
+    req.session.quizcode = 3;
+    createQuestion(3).then(questionArr => {
+      res.render('node', { questionArr });
+    });
   } else {
     res.redirect('/');
   }
 });
+
 app.get('/servlet', (req, res) => {
   if(req.session.user) {
-    res.render('servlet');
+    req.session.quizcode = 1;
+    createQuestion(1).then(questionArr => {
+      res.render('servlet', { questionArr });
+    });
   } else {
     res.redirect('/');
   }
 });
+
+app.get('/php', (req, res) => {
+  if(req.session.user) {
+    req.session.quizcode = 2;
+    createQuestion(2).then(questionArr => {
+      res.render('php', { questionArr });
+    });
+  } else {
+    res.redirect('/');
+  }
+});
+
 app.get('/session', (req, res) => {
   if(req.session.user) {
     res.render('session');
@@ -60,6 +84,7 @@ app.get('/session', (req, res) => {
     res.redirect('/');
   }
 });
+
 app.get('/coursewebsite', (req, res) => {
   if(req.session.user) {
     res.render('coursewebsite');
@@ -68,10 +93,10 @@ app.get('/coursewebsite', (req, res) => {
   }
 });
 // Route to get questions
-app.get('/questions', (req, res) => {
-  db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == ? ORDER BY id ASC, code ASC',
+const createQuestion = function(quizcode) {
+  return db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == ? ORDER BY id ASC, code ASC',
     {
-      replacements: [3],
+      replacements: [quizcode],
       type: Sequelize.QueryTypes.SELECT
     })
     .then(questions => {
@@ -98,13 +123,16 @@ app.get('/questions', (req, res) => {
           }
         });
       }
-      res.render('questions', { questionArr });
+      return questionArr;
     });
-});
+}
 
 app.post('/getAnswers', (req, res) => {
   let q1 = req.body;
-  console.log(q1.values);
+  for(key in q1) {
+    console.log(key + ":" + q1[key]);
+  };
+
 });
 
 // Route to save response
