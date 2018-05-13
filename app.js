@@ -14,7 +14,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({ secret: 'webtechLEC', resave: false, saveUninitialized: false }));
 
 app.get('/', (req, res) => {
-  let user = req.session.user;
+  if(req.session.user) {
+    res.redirect('/home');
+  }
   res.render('index');
 });
 
@@ -89,14 +91,6 @@ app.get('/php', (req, res) => {
 app.get('/session', (req, res) => {
   if(req.session.user) {
     res.render('session');
-  } else {
-    res.redirect('/');
-  }
-});
-
-app.get('/topics', (req, res) => {
-  if(req.session.user) {
-    res.render('topics');
   } else {
     res.redirect('/');
   }
@@ -177,9 +171,23 @@ app.post('/getAnswers', (req, res) => {
           }
           count++;
         };
-        console.log(correct);
-      })
-  }
+        let heading = correct < 6
+          ? "Try again!"
+          : correct < 8
+          ? "Keep it up!"
+          : correct < 10
+          ? "Good job!"
+          : "Perfect";
+        let body = correct < 6
+          ? "Go back to the top and study more!"
+          : correct < 8
+          ? "You can still improve, study more!"
+          : correct < 10
+          ? "Fantastic, a little bit more you can Perfect it, study more!"
+          : "Wow Amazing, This is just a beginning there are still more to learn, study more!"
+        res.render('results', { correct, heading, body });
+      });
+  };
 });
 
 // Route to save response
