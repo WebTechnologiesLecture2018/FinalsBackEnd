@@ -11,26 +11,34 @@
 
 <div class="body sessionHandling">
   <div class = "session handling">
+    <h2>What is Session Handling</h2>
+    <p>In a website, there are many request and response informations that a developer need to authenticate and maintain. The most common technique for this is using session handling. In that way, we can reduce the risk such as session hijacking.<br> </p>
     <p>Session handling happens when a server setup a cookie in the client’s browser maintaining the state between the servlet and client browser. It is maintained by a WebLogic Server by wherein the server is associated with session identifiers for different clients, and for each session there is data stored. Since data is stored in the server, it is also called as server-side session handling.</p>
+    <h3> Session Handling in node:</h3>
+      <p> 1. In node, you must first install <b>express js.</b></p>
+      <p> 2. Then, you can now initialize the session.</p>
+      <p> 3. After that, create a session value using the request variable, you can assign a session to any variable.</p>
+
+    <h4>HTTPSession methods:</h4>
     <ul>
       <li>
-        <h3>getSession()</h3>
+        <h5>getSession()</h5>
         <p>retrieval of an instance of HttpSession object.</p>
       </li>
       <li>
-        <h3>isNew()</h3>
+        <h5>isNew()</h5>
         <p>returns a boolean value (true or false), whether the session is new or not.</p>
       </li>
       <li>
-        <h3>isNew()</h3>
+        <h5>isNew()</h5>
         <p>returns a boolean value (true or false), whether the session is new or not.</p>
       </li>
       <li>
-        <h3>setAttribute()</h3>
+        <h5>setAttribute()</h5>
         <p>storing of data in the session via the servlet by accepting two parameters (name as the key, java object to be stored).</p>
       </li>
        <li>
-        <h3>getAttribute()</h3>
+        <h4>getAttribute()</h4>
         <p>retrieve data from the session. Requires typecasting to the appropriate type in the servlet.</p>
       </li>
     </ul>
