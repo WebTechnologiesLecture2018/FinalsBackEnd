@@ -141,7 +141,7 @@ const createQuestion = function(quizcode) {
 app.post('/getAnswers', (req, res) => {
   let answers = req.body;
   if(Object.keys(answers).length != 10) {
-    req.session.remaining = 10 - Object.keys(q1).length;
+    req.session.remaining = 10 - Object.keys(answers).length;
     switch(req.session.quizcode) {
       case 1:
         res.redirect('/servlet');
