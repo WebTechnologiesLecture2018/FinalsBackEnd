@@ -27,7 +27,7 @@ app.post('/login', (req, res) => {
   res.redirect('/home');
 });
 
-app.post('/logout', (req, res) => {
+app.get('/signout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 })

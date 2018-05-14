@@ -139,7 +139,7 @@ div.modal-content{
 }
 
 
-.col-container servlet{
+.col-container .servlet{
     width: 100%;
     margin: auto;
     padding-top: 4%;
@@ -168,6 +168,10 @@ div.body{
 
 #about{
   padding-top: 5%;
+}
+
+div.about {
+  width: 100%;
 }
 
 
