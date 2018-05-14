@@ -9,31 +9,27 @@
   </head>
   <body>
     <div class="topnav">
-    <a href="/home">Home</a>
-    <div class="topdropbtn">
-    <a href="/coursewebsite">Topics</a>
-  </div>
-  <div class="topdropdown>
-      <a class="dropdown-item" href="/servlet">Servlet</a>
-      <a class="dropdown-item" href="/php">PHP</a>
-      <a class="dropdown-item" href="/node">Node</a>
-      <a class="dropdown-item" href="/jsp">JSP</a>
-      <a class="dropdown-item" href="/session">Session Handling</a>
-    </div>
-    <div class="topnav-right">
-      <a href="/about">About</a>
-      <a href="signout">Sign Out</a>
-    </div>
-  </div>
+      <a href="/home">Home</a>
+      <div class="topdropdown">
+        <button class="topdropbtn">Topics</button>
+        <div class="dropdown-content">
+            <a href="/servlet">Servlet</a>
+            <a href="/node">Node</a>
+            <a href="/jsp">JSP</a>
+            <a href="/session">Session Handling</a>
+        </div>
+      </div>
+      <div class="topnav-right">
+        <a href="/about">About</a>
     {{{body}}}
     <div class="footer-site row col-12">
-	<div class="footer-left col-4">
-		<p class="footer-links">
-			<a href="/about">About Us</a>
-		</p>
-		<p>Web System & Technologies &copy; 2018</p>
-	</div>
-</div>
+    	<div class="footer-left col-4">
+    		<p class="footer-links">
+    			<a href="/about">About Us</a>
+    		</p>
+    		<p>Web System & Technologies &copy; 2018</p>
+    	</div>
+    </div>
   </body>
   <script src="/static/js/jquery-3.3.1.min.js"></script>
   <script src="/static/js/bootstrap.min.js"></script>
