@@ -46,6 +46,7 @@ app.get('/jsp', (req, res) => {
     createQuestion(4).then(questionArr => {
       let remaining = req.session.remaining;
       res.render('jsp', { questionArr, remaining });
+      req.session.remaining = "";
     });
   } else {
     res.redirect('/');
@@ -58,6 +59,7 @@ app.get('/node', (req, res) => {
     createQuestion(3).then(questionArr => {
       let remaining = req.session.remaining;
       res.render('node', { questionArr, remaining });
+      req.session.remaining = "";
     });
   } else {
     res.redirect('/');
@@ -70,6 +72,7 @@ app.get('/servlet', (req, res) => {
     createQuestion(1).then(questionArr => {
       let remaining = req.session.remaining;
       res.render('servlet', { questionArr, remaining });
+      req.session.remaining = "";
     });
   } else {
     res.redirect('/');
@@ -82,6 +85,7 @@ app.get('/php', (req, res) => {
     createQuestion(2).then(questionArr => {
       let remaining = req.session.remaining;
       res.render('php', { questionArr, remaining });
+      req.session.remaining = "";
     });
   } else {
     res.redirect('/');
