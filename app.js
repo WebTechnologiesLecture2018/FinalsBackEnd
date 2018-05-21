@@ -109,14 +109,14 @@ app.get('/home', (req, res) => {
 });
 // Route to get questions
 const createQuestion = function(quizcode) {
-  return db.query('SELECT * FROM questions JOIN options ON id == question_id where quiz_code == ? ORDER BY id ASC, code ASC',
+  return db.query('SELECT * FROM questions JOIN options ON questions.id == options.question_id where quiz_code == ? ORDER BY id ASC, code ASC',
     {
       replacements: [quizcode],
       type: Sequelize.QueryTypes.SELECT
     })
     .then(questions => {
       let questionArr = [];
-      for(var i = 0; i < questions.length; i+=3) {
+      for(let i = 0; i < questions.length; i+=3) {
         questionArr.push({
           "id": questions[i].id,
           "showid": questions[i].id % 10 == 0 ? 10 : questions[i].id % 10,
